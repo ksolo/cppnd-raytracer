@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sd
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/Users/ksolo/CLionProjects/cppnd-raytracer/vendor/googletest/googletest/include -I/Users/ksolo/CLionProjects/cppnd-raytracer/vendor/googletest/googletest 
 

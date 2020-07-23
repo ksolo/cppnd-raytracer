@@ -22,7 +22,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CheckCSourceCompiles.cmake"
-  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CheckIncludeFile.c.in"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CheckIncludeFile.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CheckLibraryExists.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/Compiler/AppleClang-C.cmake"
@@ -50,16 +49,15 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeSystem.cmake"
-  "../tests/CMakeLists.txt"
-  "../tests/vendor/googletest/CMakeLists.txt"
-  "../tests/vendor/googletest/googlemock/CMakeLists.txt"
-  "../tests/vendor/googletest/googlemock/cmake/gmock.pc.in"
-  "../tests/vendor/googletest/googlemock/cmake/gmock_main.pc.in"
-  "../tests/vendor/googletest/googletest/CMakeLists.txt"
-  "../tests/vendor/googletest/googletest/cmake/Config.cmake.in"
-  "../tests/vendor/googletest/googletest/cmake/gtest.pc.in"
-  "../tests/vendor/googletest/googletest/cmake/gtest_main.pc.in"
-  "../tests/vendor/googletest/googletest/cmake/internal_utils.cmake"
+  "../vendor/googletest/CMakeLists.txt"
+  "../vendor/googletest/googlemock/CMakeLists.txt"
+  "../vendor/googletest/googlemock/cmake/gmock.pc.in"
+  "../vendor/googletest/googlemock/cmake/gmock_main.pc.in"
+  "../vendor/googletest/googletest/CMakeLists.txt"
+  "../vendor/googletest/googletest/cmake/Config.cmake.in"
+  "../vendor/googletest/googletest/cmake/gtest.pc.in"
+  "../vendor/googletest/googletest/cmake/gtest_main.pc.in"
+  "../vendor/googletest/googletest/cmake/internal_utils.cmake"
   )
 
 # The corresponding makefile is:
@@ -71,18 +69,17 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/vendor/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/vendor/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/vendor/googletest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendor/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendor/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "vendor/googletest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/raytracer.dir/DependInfo.cmake"
-  "tests/CMakeFiles/run_tests.dir/DependInfo.cmake"
-  "tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
-  "tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
-  "tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
-  "tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "CMakeFiles/run_tests.dir/DependInfo.cmake"
+  "vendor/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
+  "vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
+  "vendor/googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "vendor/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )

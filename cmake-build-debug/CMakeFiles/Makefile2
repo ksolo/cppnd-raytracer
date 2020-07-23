@@ -54,100 +54,82 @@ CMAKE_BINARY_DIR = /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles/raytracer.dir/all
-all: tests/all
+all: CMakeFiles/run_tests.dir/all
+all: vendor/googletest/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: tests/preinstall
+preinstall: vendor/googletest/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/raytracer.dir/clean
-clean: tests/clean
+clean: CMakeFiles/run_tests.dir/clean
+clean: vendor/googletest/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory tests
+# Directory level rules for directory vendor/googletest
 
 # Recursive "all" directory target.
-tests/all: tests/CMakeFiles/run_tests.dir/all
-tests/all: tests/vendor/googletest/all
+vendor/googletest/all: vendor/googletest/googlemock/all
 
-.PHONY : tests/all
+.PHONY : vendor/googletest/all
 
 # Recursive "preinstall" directory target.
-tests/preinstall: tests/vendor/googletest/preinstall
+vendor/googletest/preinstall: vendor/googletest/googlemock/preinstall
 
-.PHONY : tests/preinstall
+.PHONY : vendor/googletest/preinstall
 
 # Recursive "clean" directory target.
-tests/clean: tests/CMakeFiles/run_tests.dir/clean
-tests/clean: tests/vendor/googletest/clean
+vendor/googletest/clean: vendor/googletest/googlemock/clean
 
-.PHONY : tests/clean
+.PHONY : vendor/googletest/clean
 
 #=============================================================================
-# Directory level rules for directory tests/vendor/googletest
+# Directory level rules for directory vendor/googletest/googlemock
 
 # Recursive "all" directory target.
-tests/vendor/googletest/all: tests/vendor/googletest/googlemock/all
+vendor/googletest/googlemock/all: vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
+vendor/googletest/googlemock/all: vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+vendor/googletest/googlemock/all: vendor/googletest/googletest/all
 
-.PHONY : tests/vendor/googletest/all
+.PHONY : vendor/googletest/googlemock/all
 
 # Recursive "preinstall" directory target.
-tests/vendor/googletest/preinstall: tests/vendor/googletest/googlemock/preinstall
+vendor/googletest/googlemock/preinstall: vendor/googletest/googletest/preinstall
 
-.PHONY : tests/vendor/googletest/preinstall
+.PHONY : vendor/googletest/googlemock/preinstall
 
 # Recursive "clean" directory target.
-tests/vendor/googletest/clean: tests/vendor/googletest/googlemock/clean
+vendor/googletest/googlemock/clean: vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
+vendor/googletest/googlemock/clean: vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+vendor/googletest/googlemock/clean: vendor/googletest/googletest/clean
 
-.PHONY : tests/vendor/googletest/clean
+.PHONY : vendor/googletest/googlemock/clean
 
 #=============================================================================
-# Directory level rules for directory tests/vendor/googletest/googlemock
+# Directory level rules for directory vendor/googletest/googletest
 
 # Recursive "all" directory target.
-tests/vendor/googletest/googlemock/all: tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
-tests/vendor/googletest/googlemock/all: tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
-tests/vendor/googletest/googlemock/all: tests/vendor/googletest/googletest/all
+vendor/googletest/googletest/all: vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
+vendor/googletest/googletest/all: vendor/googletest/googletest/CMakeFiles/gtest.dir/all
 
-.PHONY : tests/vendor/googletest/googlemock/all
-
-# Recursive "preinstall" directory target.
-tests/vendor/googletest/googlemock/preinstall: tests/vendor/googletest/googletest/preinstall
-
-.PHONY : tests/vendor/googletest/googlemock/preinstall
-
-# Recursive "clean" directory target.
-tests/vendor/googletest/googlemock/clean: tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
-tests/vendor/googletest/googlemock/clean: tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
-tests/vendor/googletest/googlemock/clean: tests/vendor/googletest/googletest/clean
-
-.PHONY : tests/vendor/googletest/googlemock/clean
-
-#=============================================================================
-# Directory level rules for directory tests/vendor/googletest/googletest
-
-# Recursive "all" directory target.
-tests/vendor/googletest/googletest/all: tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
-tests/vendor/googletest/googletest/all: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
-
-.PHONY : tests/vendor/googletest/googletest/all
+.PHONY : vendor/googletest/googletest/all
 
 # Recursive "preinstall" directory target.
-tests/vendor/googletest/googletest/preinstall:
+vendor/googletest/googletest/preinstall:
 
-.PHONY : tests/vendor/googletest/googletest/preinstall
+.PHONY : vendor/googletest/googletest/preinstall
 
 # Recursive "clean" directory target.
-tests/vendor/googletest/googletest/clean: tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
-tests/vendor/googletest/googletest/clean: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
+vendor/googletest/googletest/clean: vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
+vendor/googletest/googletest/clean: vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
 
-.PHONY : tests/vendor/googletest/googletest/clean
+.PHONY : vendor/googletest/googletest/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/raytracer.dir
@@ -177,141 +159,141 @@ CMakeFiles/raytracer.dir/clean:
 .PHONY : CMakeFiles/raytracer.dir/clean
 
 #=============================================================================
-# Target rules for target tests/CMakeFiles/run_tests.dir
+# Target rules for target CMakeFiles/run_tests.dir
 
 # All Build rule for target.
-tests/CMakeFiles/run_tests.dir/all: tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
-tests/CMakeFiles/run_tests.dir/all: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/CMakeFiles/run_tests.dir/build.make tests/CMakeFiles/run_tests.dir/depend
-	$(MAKE) -f tests/CMakeFiles/run_tests.dir/build.make tests/CMakeFiles/run_tests.dir/build
+CMakeFiles/run_tests.dir/all: vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/run_tests.dir/all: vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target run_tests"
-.PHONY : tests/CMakeFiles/run_tests.dir/all
+.PHONY : CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
-tests/CMakeFiles/run_tests.dir/rule: cmake_check_build_system
+CMakeFiles/run_tests.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/run_tests.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 0
-.PHONY : tests/CMakeFiles/run_tests.dir/rule
+.PHONY : CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
-run_tests: tests/CMakeFiles/run_tests.dir/rule
+run_tests: CMakeFiles/run_tests.dir/rule
 
 .PHONY : run_tests
 
 # clean rule for target.
-tests/CMakeFiles/run_tests.dir/clean:
-	$(MAKE) -f tests/CMakeFiles/run_tests.dir/build.make tests/CMakeFiles/run_tests.dir/clean
-.PHONY : tests/CMakeFiles/run_tests.dir/clean
+CMakeFiles/run_tests.dir/clean:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/clean
+.PHONY : CMakeFiles/run_tests.dir/clean
 
 #=============================================================================
-# Target rules for target tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir
+# Target rules for target vendor/googletest/googlemock/CMakeFiles/gmock.dir
 
 # All Build rule for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/all: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/depend
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build
+vendor/googletest/googlemock/CMakeFiles/gmock.dir/all: vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock.dir/depend
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target gmock"
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
+vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 0
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
-gmock: tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule
+gmock: vendor/googletest/googlemock/CMakeFiles/gmock.dir/rule
 
 .PHONY : gmock
 
 # clean rule for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean:
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
+vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean:
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock.dir/clean
 
 #=============================================================================
-# Target rules for target tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir
+# Target rules for target vendor/googletest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all: tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
-tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all: vendor/googletest/googlemock/CMakeFiles/gmock.dir/all
+vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all: vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target gmock_main"
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
+vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 0
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
-gmock_main: tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
+gmock_main: vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 .PHONY : gmock_main
 
 # clean rule for target.
-tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
-.PHONY : tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
+.PHONY : vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
 
 #=============================================================================
-# Target rules for target tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir
+# Target rules for target vendor/googletest/googletest/CMakeFiles/gtest_main.dir
 
 # All Build rule for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/depend
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build
+vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all: vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest_main.dir/depend
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target gtest_main"
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
+vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 vendor/googletest/googletest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 0
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
-gtest_main: tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule
+gtest_main: vendor/googletest/googletest/CMakeFiles/gtest_main.dir/rule
 
 .PHONY : gtest_main
 
 # clean rule for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean:
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
+vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean:
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest_main.dir/clean
 
 #=============================================================================
-# Target rules for target tests/vendor/googletest/googletest/CMakeFiles/gtest.dir
+# Target rules for target vendor/googletest/googletest/CMakeFiles/gtest.dir
 
 # All Build rule for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all:
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/depend
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build
+vendor/googletest/googletest/CMakeFiles/gtest.dir/all:
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest.dir/depend
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target gtest"
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
+vendor/googletest/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 vendor/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles 0
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/rule
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
-gtest: tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/rule
+gtest: vendor/googletest/googletest/CMakeFiles/gtest.dir/rule
 
 .PHONY : gtest
 
 # clean rule for target.
-tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/clean:
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
-.PHONY : tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
+vendor/googletest/googletest/CMakeFiles/gtest.dir/clean:
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
+.PHONY : vendor/googletest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -179,7 +179,7 @@ run_tests: cmake_check_build_system
 
 # fast build rule for target.
 run_tests/fast:
-	$(MAKE) -f tests/CMakeFiles/run_tests.dir/build.make tests/CMakeFiles/run_tests.dir/build
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
 .PHONY : run_tests/fast
 
 #=============================================================================
@@ -192,7 +192,7 @@ gmock: cmake_check_build_system
 
 # fast build rule for target.
 gmock/fast:
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock.dir/build
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 #=============================================================================
@@ -205,7 +205,7 @@ gmock_main: cmake_check_build_system
 
 # fast build rule for target.
 gmock_main/fast:
-	$(MAKE) -f tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+	$(MAKE) -f vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make vendor/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 #=============================================================================
@@ -218,7 +218,7 @@ gtest_main: cmake_check_build_system
 
 # fast build rule for target.
 gtest_main/fast:
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
 #=============================================================================
@@ -231,35 +231,62 @@ gtest: cmake_check_build_system
 
 # fast build rule for target.
 gtest/fast:
-	$(MAKE) -f tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/vendor/googletest/googletest/CMakeFiles/gtest.dir/build
+	$(MAKE) -f vendor/googletest/googletest/CMakeFiles/gtest.dir/build.make vendor/googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-main.o: main.cpp.o
+src/main.o: src/main.cpp.o
 
-.PHONY : main.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
+src/main.i: src/main.cpp.i
 
-.PHONY : main.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
+src/main.s: src/main.cpp.s
 
-.PHONY : main.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+tests/ExampleTest.o: tests/ExampleTest.cpp.o
+
+.PHONY : tests/ExampleTest.o
+
+# target to build an object file
+tests/ExampleTest.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/ExampleTest.cpp.o
+.PHONY : tests/ExampleTest.cpp.o
+
+tests/ExampleTest.i: tests/ExampleTest.cpp.i
+
+.PHONY : tests/ExampleTest.i
+
+# target to preprocess a source file
+tests/ExampleTest.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/ExampleTest.cpp.i
+.PHONY : tests/ExampleTest.cpp.i
+
+tests/ExampleTest.s: tests/ExampleTest.cpp.s
+
+.PHONY : tests/ExampleTest.s
+
+# target to generate assembly for a file
+tests/ExampleTest.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/ExampleTest.cpp.s
+.PHONY : tests/ExampleTest.cpp.s
 
 # Help Target
 help:
@@ -279,9 +306,12 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... tests/ExampleTest.o"
+	@echo "... tests/ExampleTest.i"
+	@echo "... tests/ExampleTest.s"
 .PHONY : help
 
 

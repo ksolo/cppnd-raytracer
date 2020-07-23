@@ -4,12 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/ksolo/CLionProjects/cppnd-raytracer/main.cpp" "/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles/raytracer.dir/main.cpp.o"
+  "/Users/ksolo/CLionProjects/cppnd-raytracer/src/main.cpp" "/Users/ksolo/CLionProjects/cppnd-raytracer/cmake-build-debug/CMakeFiles/raytracer.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../vendor/googletest/googletest/include"
+  "../vendor/googletest/googletest"
   )
 
 # Targets to which this target links.
