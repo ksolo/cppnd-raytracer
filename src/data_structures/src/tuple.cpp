@@ -7,4 +7,7 @@ namespace raytracer
    double tuple::y() const { return _y; }
    double tuple::z() const { return _z; }
    double tuple::w() const { return _w; }
+
+   bool tuple::is_point() { return w() == 1.0; }
+   bool tuple::is_vector() { return w() == 0.0; }
 }

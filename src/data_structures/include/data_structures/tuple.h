@@ -10,6 +10,9 @@ public:
     double y() const;
     double z() const;
     double w() const;
+
+    bool is_point();
+    bool is_vector();
 private:
     double _x;
     double _y;
