@@ -6,6 +6,8 @@ namespace raytracer
 class tuple {
 public:
     tuple(double x, double y, double z, double w);
+    static tuple point(double x, double y, double z);
+    static tuple vector(double x, double y, double z);
     double x() const;
     double y() const;
     double z() const;
@@ -13,6 +15,8 @@ public:
 
     bool is_point();
     bool is_vector();
+
+    bool operator==(tuple &other);
 private:
     double _x;
     double _y;

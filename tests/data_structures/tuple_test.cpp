@@ -20,3 +20,17 @@ TEST(TUPLE_TEST, tuple_with_w_of_0_is_vector)
     EXPECT_EQ(tuple.w(), 0.0) << "tuple w was not set properly during initialization";
     EXPECT_TRUE(tuple.is_vector());
 }
+
+TEST(TUPLE_TEST, create_point_with_factory_function)
+{
+    raytracer::tuple point = raytracer::tuple::point(4, -4, 3);
+    raytracer::tuple other_point(4, -4, 3, 1);
+    EXPECT_TRUE(point == other_point);
+}
+
+TEST(TUPLE_TEST, create_vector_with_factory_function)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(4, -4, 3);
+    raytracer::tuple other_vector(4, -4, 3, 0);
+    EXPECT_TRUE(vector == other_vector);
+}
