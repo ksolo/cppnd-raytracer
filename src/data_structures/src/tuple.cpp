@@ -1,4 +1,5 @@
 #include "data_structures/tuple.h"
+#include <cmath>
 
 namespace raytracer
 {
@@ -12,14 +13,24 @@ namespace raytracer
    double tuple::z() const { return _z; }
    double tuple::w() const { return _w; }
 
+   bool tuple::epsilon_compare(double a, double b)
+   {
+       return abs(a - b) <= epsilon;
+   }
+
    bool tuple::operator==(tuple &other)
    {
        return (
-            x() == other.x() &&
-            y() == other.y() &&
-            z() == other.z() &&
-            w() == other.w()
+            epsilon_compare(x(), other.x()) &&
+            epsilon_compare(y(), other.y()) &&
+            epsilon_compare(z(), other.z()) &&
+            epsilon_compare(w(), other.w())
        );
+   }
+
+   tuple tuple::operator+(tuple &other)
+   {
+        return tuple(x() + other.x(), y() + other.y(), z() + other.z(), w() + other.w());
    }
 
    bool tuple::is_point() { return w() == 1.0; }

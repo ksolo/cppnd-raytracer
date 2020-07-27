@@ -34,3 +34,16 @@ TEST(TUPLE_TEST, create_vector_with_factory_function)
     raytracer::tuple other_vector(4, -4, 3, 0);
     EXPECT_TRUE(vector == other_vector);
 }
+
+TEST(TUPLE_TEST, adding_two_tuples)
+{
+    raytracer::tuple tuple_one(3, -2, 5, 1);
+    raytracer::tuple tuple_two(-2, 3, 1, 0);
+
+    raytracer::tuple result = tuple_one + tuple_two;
+
+    EXPECT_EQ(result.x(), 1) << "x values were not added correctly";
+    EXPECT_EQ(result.y(), 1) << "y values were not added correctly";
+    EXPECT_EQ(result.z(), 6) << "z values were not added correctly";
+    EXPECT_EQ(result.w(), 1) << "w values were not added correctly";
+}

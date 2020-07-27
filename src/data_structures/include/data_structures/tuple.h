@@ -4,6 +4,14 @@
 namespace raytracer
 {
 class tuple {
+    static constexpr double epsilon = 0.0001;
+    double _x;
+    double _y;
+    double _z;
+    double _w;
+
+    bool epsilon_compare(double a, double b);
+
 public:
     tuple(double x, double y, double z, double w);
     static tuple point(double x, double y, double z);
@@ -17,11 +25,7 @@ public:
     bool is_vector();
 
     bool operator==(tuple &other);
-private:
-    double _x;
-    double _y;
-    double _z;
-    double _w;
+    tuple operator+(tuple &other);
 };
 }
 
