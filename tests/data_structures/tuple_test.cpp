@@ -47,3 +47,28 @@ TEST(TUPLE_TEST, adding_two_tuples)
     EXPECT_EQ(result.z(), 6) << "z values were not added correctly";
     EXPECT_EQ(result.w(), 1) << "w values were not added correctly";
 }
+
+TEST(TUPLE_TEST, subtraciting_two_points)
+{
+    raytracer::tuple point_one = raytracer::tuple::point(3, 2, 1);
+    raytracer::tuple point_two = raytracer::tuple::point(5, 6, 7);
+
+    raytracer::tuple result = point_one - point_two;
+
+    EXPECT_EQ(result.x(), -2) << "x values were not subtracted correctly";
+    EXPECT_EQ(result.y(), -4) << "y values were not subtracted correctly";
+    EXPECT_EQ(result.z(), -6) << "z values were not subtracted correctly";
+    EXPECT_EQ(result.w(), 0) << "w values were not subtracted correctly";
+}
+
+TEST(TUPLE_TEST, negating_a_tuple)
+{
+    raytracer::tuple point = raytracer::tuple::point(3, 2, 1);
+
+    raytracer::tuple result = -point;
+
+    EXPECT_EQ(result.x(), -3) << "x values were not negated correctly";
+    EXPECT_EQ(result.y(), -2) << "y values were not negated correctly";
+    EXPECT_EQ(result.z(), -1) << "z values were not negated correctly";
+    EXPECT_EQ(result.w(), -1) << "w values were not negated correctly";
+}

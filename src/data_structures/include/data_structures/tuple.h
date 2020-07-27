@@ -26,6 +26,8 @@ public:
 
     bool operator==(tuple &other);
     tuple operator+(tuple &other);
+    tuple operator-(tuple &other);
+    tuple operator-();
 };
 }
 
