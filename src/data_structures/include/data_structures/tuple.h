@@ -30,6 +30,8 @@ public:
     bool is_point();
     bool is_vector();
 
+    double magnitude();
+
     // operators
     bool operator==(tuple &other);
     tuple operator+(tuple &other);
@@ -37,6 +39,7 @@ public:
     tuple operator*(double scalar);
     tuple operator/(double scalar);
     tuple operator-();
+
 };
 }
 

@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "data_structures/tuple.h"
+#include <cmath>
 
 TEST(TUPLE_TEST, tuple_with_w_of_1_is_point)
 {
@@ -95,4 +96,39 @@ TEST(TUPLE_TEST, divide_tuple_by_scalar)
     EXPECT_EQ(result.y(), 1.0) << "y values were not divided correctly";
     EXPECT_EQ(result.z(), 0.5) << "z values were not divided correctly";
     EXPECT_EQ(result.w(), 0.5) << "w values were not divided correctly";
+}
+
+TEST(TUPLE_TEST, magnitude_of_vector_1_0_0)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(1, 0, 0);
+    double magnitude = vector.magnitude();
+    EXPECT_EQ(magnitude, 1);
+}
+
+TEST(TUPLE_TEST, magnitude_of_vector_0_1_0)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(0, 1, 0);
+    double magnitude = vector.magnitude();
+    EXPECT_EQ(magnitude, 1);
+}
+
+TEST(TUPLE_TEST, magnitude_of_vector_0_0_1)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(0, 0, 1);
+    double magnitude = vector.magnitude();
+    EXPECT_EQ(magnitude, 1);
+}
+
+TEST(TUPLE_TEST, magnitude_of_vector_1_2_3)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(1, 2, 3);
+    double magnitude = vector.magnitude();
+    EXPECT_EQ(magnitude, std::sqrt(14.0));
+}
+
+TEST(TUPLE_TEST, magnitude_of_negative_vector_1_2_3)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(-1, -2, -3);
+    double magnitude = vector.magnitude();
+    EXPECT_EQ(magnitude, std::sqrt(14.0));
 }

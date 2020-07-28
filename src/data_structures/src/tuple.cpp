@@ -3,6 +3,9 @@
 
 namespace raytracer
 {
+    using std::pow;
+    using std::sqrt;
+
     tuple::tuple(double x, double y, double z, double w) : _x(x), _y(y), _z(z), _w(w) {}
 
     tuple tuple::point(double x, double y, double z) { return tuple(x, y, z, 1.0); }
@@ -53,4 +56,8 @@ namespace raytracer
 
     bool tuple::is_point() { return w() == 1.0; }
     bool tuple::is_vector() { return w() == 0.0; }
+
+    double tuple::magnitude() {
+        return sqrt(pow(x(),2) + pow(y(), 2) + pow(z(),2) + pow(w(), 2));
+    }
 }
