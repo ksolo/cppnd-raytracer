@@ -132,3 +132,12 @@ TEST(TUPLE_TEST, magnitude_of_negative_vector_1_2_3)
     double magnitude = vector.magnitude();
     EXPECT_EQ(magnitude, std::sqrt(14.0));
 }
+
+TEST(TUPLE_TEST, normaize_vector_4_0_0)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(4, 0, 0);
+    raytracer::tuple normalized_vector = vector.normalize();
+
+    raytracer::tuple expected_vector = raytracer::tuple::vector(1, 0, 0);
+    EXPECT_TRUE(normalized_vector == expected_vector) << "normalized vector was not calculated correctly";
+}

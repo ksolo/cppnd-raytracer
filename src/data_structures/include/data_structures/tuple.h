@@ -26,12 +26,6 @@ public:
     double z() const;
     double w() const;
 
-    // methods
-    bool is_point();
-    bool is_vector();
-
-    double magnitude();
-
     // operators
     bool operator==(tuple &other);
     tuple operator+(tuple &other);
@@ -40,6 +34,12 @@ public:
     tuple operator/(double scalar);
     tuple operator-();
 
+    // methods
+    bool is_point();
+    bool is_vector();
+
+    double magnitude();
+    tuple normalize();
 };
 }
 
