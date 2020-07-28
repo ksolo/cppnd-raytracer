@@ -72,3 +72,27 @@ TEST(TUPLE_TEST, negating_a_tuple)
     EXPECT_EQ(result.z(), -1) << "z values were not negated correctly";
     EXPECT_EQ(result.w(), -1) << "w values were not negated correctly";
 }
+
+TEST(TUPLE_TEST, multiplying_tuple_by_scalar)
+{
+    raytracer::tuple point = raytracer::tuple::point(3, 2, 1);
+
+    raytracer::tuple result = point * 3.5;
+
+    EXPECT_EQ(result.x(), 10.5) << "x values were not scaled correctly";
+    EXPECT_EQ(result.y(), 7.0) << "y values were not scaled correctly";
+    EXPECT_EQ(result.z(), 3.5) << "z values were not scaled correctly";
+    EXPECT_EQ(result.w(), 3.5) << "w values were not scaled correctly";
+}
+
+TEST(TUPLE_TEST, divide_tuple_by_scalar)
+{
+    raytracer::tuple point = raytracer::tuple::point(3, 2, 1);
+
+    raytracer::tuple result = point / 2;
+
+    EXPECT_EQ(result.x(), 1.5) << "x values were not divided correctly";
+    EXPECT_EQ(result.y(), 1.0) << "y values were not divided correctly";
+    EXPECT_EQ(result.z(), 0.5) << "z values were not divided correctly";
+    EXPECT_EQ(result.w(), 0.5) << "w values were not divided correctly";
+}

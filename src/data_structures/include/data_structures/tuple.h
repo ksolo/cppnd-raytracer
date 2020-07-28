@@ -13,20 +13,29 @@ class tuple {
     bool epsilon_compare(double a, double b);
 
 public:
+    // constructor
     tuple(double x, double y, double z, double w);
+
+    // factory methods
     static tuple point(double x, double y, double z);
     static tuple vector(double x, double y, double z);
+
+    // getters
     double x() const;
     double y() const;
     double z() const;
     double w() const;
 
+    // methods
     bool is_point();
     bool is_vector();
 
+    // operators
     bool operator==(tuple &other);
     tuple operator+(tuple &other);
     tuple operator-(tuple &other);
+    tuple operator*(double scalar);
+    tuple operator/(double scalar);
     tuple operator-();
 };
 }

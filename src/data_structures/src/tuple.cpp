@@ -38,6 +38,14 @@ namespace raytracer
        return tuple(x() - other.x(), y() - other.y(), z() - other.z(), w() - other.w());
    }
 
+   tuple tuple::operator*(double scalar) {
+       return tuple(x()*scalar, y()*scalar, z()*scalar, w()*scalar);
+   }
+
+   tuple tuple::operator/(double scalar) {
+       return tuple(x()/scalar, y()/scalar, z()/scalar, w()/scalar);
+   }
+
    tuple tuple::operator-()
    {
        return tuple(-x(), -y() , -z(), - w());
@@ -45,4 +53,6 @@ namespace raytracer
 
    bool tuple::is_point() { return w() == 1.0; }
    bool tuple::is_vector() { return w() == 0.0; }
+
+
 }
