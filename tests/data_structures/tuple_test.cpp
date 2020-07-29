@@ -141,3 +141,20 @@ TEST(TUPLE_TEST, normaize_vector_4_0_0)
     raytracer::tuple expected_vector = raytracer::tuple::vector(1, 0, 0);
     EXPECT_TRUE(normalized_vector == expected_vector) << "normalized vector was not calculated correctly";
 }
+
+TEST(TUPLE_TEST, normaize_vector_1_2_3)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(1, 2, 3);
+    raytracer::tuple normalized_vector = vector.normalize();
+
+    raytracer::tuple expected_vector = raytracer::tuple::vector(1/std::sqrt(14), 2/std::sqrt(14), 3/std::sqrt(14));
+    EXPECT_TRUE(normalized_vector == expected_vector) << "normalized vector was not calculated correctly";
+}
+
+TEST(TUPLE_TEST, magnitude_of_normalized_vector_is_1)
+{
+    raytracer::tuple vector = raytracer::tuple::vector(1, 2, 3);
+    raytracer::tuple normalized = vector.normalize();
+
+    EXPECT_EQ(1.0, normalized.magnitude()) << "magnitude should be 1";
+}
