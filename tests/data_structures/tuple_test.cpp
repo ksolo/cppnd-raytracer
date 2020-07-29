@@ -158,3 +158,27 @@ TEST(TUPLE_TEST, magnitude_of_normalized_vector_is_1)
 
     EXPECT_EQ(1.0, normalized.magnitude()) << "magnitude should be 1";
 }
+
+TEST(TUPLE_TEST, dot_product_returns_scalar)
+{
+    raytracer::tuple vector_one = raytracer::tuple::vector(1, 2, 3);
+    raytracer::tuple vector_two = raytracer::tuple::vector(2, 3, 4);
+
+    double result = vector_one.dot(vector_two);
+
+    EXPECT_EQ(result, 20.0);
+}
+
+TEST(TUPLE_TEST, cross_product_returns_a_vector)
+{
+    raytracer::tuple vector_one = raytracer::tuple::vector(1, 2, 3);
+    raytracer::tuple vector_two = raytracer::tuple::vector(2, 3, 4);
+
+    raytracer::tuple expected_tuple = raytracer::tuple::vector(-1, 2, -1);
+    raytracer::tuple result = vector_one.cross(vector_two);
+    EXPECT_TRUE(expected_tuple == result) << "cross vector one to vector two failed";
+
+    expected_tuple = raytracer::tuple::vector(1, -2, 1);
+    result = vector_two.cross(vector_one);
+    EXPECT_TRUE(expected_tuple == result) << "cross vector two to vector one failed";
+}

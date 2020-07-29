@@ -67,4 +67,21 @@ namespace raytracer {
                 z() / magnitude(),
                 w() / magnitude());
     }
+
+    double tuple::dot(tuple &other) {
+        return (
+                    (x() * other.x())   +
+                    (y() * other.y()) +
+                    (z() * other.z()) +
+                    (w() * other.w())
+                );
+    }
+
+    tuple tuple::cross(tuple &other) {
+        return tuple::vector(
+                y() * other.z() - z() * other.y(),
+                z() * other.x() - x() * other.z(),
+                x() * other.y() - y() * other.x()
+                );
+    }
 }

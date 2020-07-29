@@ -39,7 +39,10 @@ public:
     bool is_vector();
 
     double magnitude();
+    double dot(tuple &other);
+
     tuple normalize();
+    tuple cross(tuple &other);
 };
 }
 
