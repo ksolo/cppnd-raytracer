@@ -13,6 +13,18 @@ namespace raytracer
         return color(red() + rhs.red(), green() + rhs.green(), blue() + rhs.blue());
     }
 
+    color color::operator-(color &rhs) {
+        return color(red() - rhs.red(), green() - rhs.green(), blue() - rhs.blue());
+    }
+
+    color color::operator*(color &rhs) {
+        return color(red() * rhs.red(), green() * rhs.green(), blue() * rhs.blue());
+    }
+
+    color color::operator*(double scalar) {
+        return color(red() * scalar, green() * scalar, blue() * scalar);
+    }
+
     bool color::operator==(color &rhs)
     {
         return (

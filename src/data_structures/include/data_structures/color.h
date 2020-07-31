@@ -23,6 +23,9 @@ public:
 
     // operators
     color operator+(color &rhs);
+    color operator-(color &rhs);
+    color operator*(color &rhs);
+    color operator*(double scalar);
     bool operator==(color &rhs);
 };
 }
