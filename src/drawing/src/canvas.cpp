@@ -6,4 +6,9 @@ namespace raytracer
 
     int canvas::width() const { return _width; }
     int canvas::height() const { return _height; }
+
+    std::vector<std::shared_ptr<raytracer::color>> canvas::pixels() const
+    {
+        return _pixels;
+    }
 }
