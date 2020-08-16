@@ -19,4 +19,19 @@ namespace raytracer
     {
         return _pixels;
     }
+
+    void canvas::write_pixel(int x, int y, raytracer::color c)
+    {
+        *_pixels[int_for_coords(x, y)] = c;
+    }
+
+    raytracer::color* canvas::pixel_at(int x, int y)
+    {
+        _pixels[int_for_coords(x, y)].get();
+    }
+
+    int canvas::int_for_coords(int x, int y)
+    {
+        return (width() * y) + x;
+    }
 }

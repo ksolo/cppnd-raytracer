@@ -18,3 +18,13 @@ TEST(CANVAS_TEST, test_canvas_initialization)
         EXPECT_TRUE((*pixel) == black);
     });
 }
+
+TEST(CANVAS_TEST, test_setting_pixels)
+{
+    raytracer::canvas canvas_one(10, 20);
+    raytracer::color red(1.0, 0, 0);
+
+    canvas_one.write_pixel(2, 3, red);
+
+    EXPECT_TRUE(*canvas_one.pixel_at(2, 3) == red);
+}
