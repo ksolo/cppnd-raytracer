@@ -14,6 +14,9 @@ class ppm_writer
 
 public:
     ppm_writer(std::string &output, std::unique_ptr<raytracer::drawable>&& canvas);
+    ~ppm_writer();
+
+    void generate_image();
 };
 }
 
