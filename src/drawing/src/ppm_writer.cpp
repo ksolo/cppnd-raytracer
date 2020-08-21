@@ -23,7 +23,11 @@ namespace raytracer
         for (auto color : _canvas->pixels())
         {
             _outfile << color->red() << " " << color->green() << " " << color-> blue();
-            if (++pixel_count % 5 == 0) { _outfile << std::endl; }
+            if (++pixel_count % 5 == 0)
+            {
+                _outfile << std::endl;
+                continue;
+            }
             if (color == *_canvas->pixels().end())
             {
                 _outfile << std::endl;
