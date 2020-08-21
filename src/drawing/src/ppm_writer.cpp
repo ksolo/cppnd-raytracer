@@ -18,5 +18,18 @@ namespace raytracer
         _outfile << "P3" << std::endl;
         _outfile << _canvas->width() << " " << _canvas->height() << std::endl;
         _outfile << "255" << std::endl;
+
+        int pixel_count = 0;
+        for (auto color : _canvas->pixels())
+        {
+            _outfile << color->red() << " " << color->green() << " " << color-> blue();
+            if (++pixel_count % 5 == 0) { _outfile << std::endl; }
+            if (color == *_canvas->pixels().end())
+            {
+                _outfile << std::endl;
+                return;
+            }
+            _outfile << " ";
+        }
     }
 }
