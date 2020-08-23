@@ -35,6 +35,7 @@ namespace raytracer
             }
             _outfile << " ";
         }
+        _outfile << std::endl;
     }
 
     std::string ppm_writer::formatted_pixel(raytracer::color *c) {

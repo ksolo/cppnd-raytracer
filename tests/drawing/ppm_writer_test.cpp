@@ -60,15 +60,16 @@ TEST(PPM_WRITER_TEST, test_body_output)
     std::fstream generated_file(output_file);
     std::string line;
 
-    for (size_t i = 0; i < 23; i++)
+    for (size_t i = 0; i < 2; i++)
     {
         getline(generated_file, line);
         if (i < 3) { continue; }
         if (i == 3) { EXPECT_EQ(line, "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0"); }
         if (i < 13) { continue ;}
         if (i == 13) { EXPECT_EQ(line, "0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"); }
-        if (i < 23) { continue ;}
-        if (i == 23) { EXPECT_EQ(line, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255"); }
+        if (i < 22) { continue ;}
+        if (i == 22) { EXPECT_EQ(line, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255"); }
+        if (i == 23) { EXPECT_EQ(line, "\n"); }
     }
 
     std::filesystem::path path(output_file);
