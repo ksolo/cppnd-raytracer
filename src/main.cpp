@@ -42,6 +42,7 @@ int main()
     std::vector<projectile> path { p };
     while(p.position.y() > 0)
     {
+        std::cout << "position x: " << p.position.x() << " position y: " << p.position.y() << std::endl;
         p = tick(env, p);
         path.push_back(p);
     }
@@ -49,12 +50,13 @@ int main()
     raytracer::color red(1, 0, 0);
     for (auto proj : path)
     {
-        can->write_pixel(proj.position.x(), proj.position.y(), red);
+        if (height - proj.position.y() < height)
+            can->write_pixel(int(proj.position.x()), int(height - proj.position.y()), red);
     }
 
+    std::cout << "generating output" << std::endl;
     std::string outfile = "cannon.ppm";
     raytracer::ppm_writer writer(outfile, std::move(can));
     writer.generate_image();
-
     return 0;
 }

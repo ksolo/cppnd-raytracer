@@ -1,3 +1,4 @@
+#include <iostream>
 #include "drawing/canvas.h"
 
 namespace raytracer
@@ -27,7 +28,7 @@ namespace raytracer
 
     raytracer::color* canvas::pixel_at(int x, int y)
     {
-        _pixels[int_for_coords(x, y)].get();
+        return _pixels[int_for_coords(x, y)].get();
     }
 
     int canvas::int_for_coords(int x, int y)
