@@ -36,7 +36,7 @@ int main()
     environment env { wind, gravity };
 
     const int width = 900;
-    const int height = 500;
+    const int height = 550;
     std::unique_ptr<raytracer::canvas> can = std::make_unique<raytracer::canvas>(width, height);
 
     std::vector<projectile> path { p };
@@ -50,11 +50,10 @@ int main()
     raytracer::color red(1, 0, 0);
     for (auto proj : path)
     {
-        if (height - proj.position.y() < height)
-            can->write_pixel(int(proj.position.x()), int(height - proj.position.y()), red);
+        if (proj.position.y() < height && proj.position.y() > 0)
+            can->write_pixel(proj.position.x(), height - proj.position.y(), red);
     }
 
-    std::cout << "generating output" << std::endl;
     std::string outfile = "cannon.ppm";
     raytracer::ppm_writer writer(outfile, std::move(can));
     writer.generate_image();

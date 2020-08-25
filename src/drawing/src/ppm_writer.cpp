@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "drawing/ppm_writer.h"
 
 namespace raytracer
@@ -23,7 +24,7 @@ namespace raytracer
         int pixel_count = 0;
         for (auto color : _canvas->pixels())
         {
-            std::cout << "pixel: " << pixel_count << " of " << _canvas->width() * _canvas->height() << std::endl;
+            std::cout << "creating pixel: " << pixel_count << std::endl;
             _outfile << formatted_pixel(color.get());
             if (++pixel_count % 5 == 0)
             {
@@ -32,12 +33,11 @@ namespace raytracer
             }
             if (color == *_canvas->pixels().end())
             {
-                _outfile << std::endl;
+                _outfile << std::endl << std::endl;
                 return;
             }
             _outfile << " ";
         }
-        _outfile << std::endl;
     }
 
     std::string ppm_writer::formatted_pixel(raytracer::color *c) {
