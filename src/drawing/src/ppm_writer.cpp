@@ -24,7 +24,6 @@ namespace raytracer
         int pixel_count = 0;
         for (auto color : _canvas->pixels())
         {
-            std::cout << "creating pixel: " << pixel_count << std::endl;
             _outfile << formatted_pixel(color.get());
             if (++pixel_count % 5 == 0)
             {

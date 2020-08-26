@@ -35,8 +35,8 @@ int main()
     raytracer::tuple gravity = raytracer::tuple::vector(0, -1.0, 0);
     environment env { wind, gravity };
 
-    const int width = 90;
-    const int height = 55;
+    const int width = 360;
+    const int height = 180;
     std::unique_ptr<raytracer::canvas> can = std::make_unique<raytracer::canvas>(width, height);
 
     std::vector<projectile> path { p };
