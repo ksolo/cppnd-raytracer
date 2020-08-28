@@ -11,7 +11,7 @@ class drawable
 public:
     virtual int width() const = 0;
     virtual int height() const = 0;
-    virtual std::vector<raytracer::color&> pixels() const = 0;
+    virtual std::vector<raytracer::color> pixels() const = 0;
 };
 }
 

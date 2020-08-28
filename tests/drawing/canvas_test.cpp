@@ -15,7 +15,7 @@ TEST(CANVAS_TEST, test_canvas_initialization)
 
     auto pixels = canvas_one.pixels();
     std::for_each(pixels.begin(), pixels.end(),[&](auto& pixel) {
-        EXPECT_TRUE((*pixel) == black);
+        EXPECT_TRUE(pixel == black);
     });
 }
 

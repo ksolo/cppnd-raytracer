@@ -35,14 +35,13 @@ int main()
     raytracer::tuple gravity = raytracer::tuple::vector(0, -1.0, 0);
     environment env { wind, gravity };
 
-    const int width = 130;
-    const int height = 200;
+    const int width = 900;
+    const int height = 550;
     std::unique_ptr<raytracer::canvas> can = std::make_unique<raytracer::canvas>(width, height);
 
     std::vector<projectile> path { p };
     while(p.position.y() > 0)
     {
-        std::cout << "position x: " << p.position.x() << " position y: " << p.position.y() << std::endl;
         p = tick(env, p);
         path.push_back(p);
     }

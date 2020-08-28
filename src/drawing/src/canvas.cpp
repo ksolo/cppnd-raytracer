@@ -16,7 +16,7 @@ namespace raytracer
     int canvas::width() const { return _width; }
     int canvas::height() const { return _height; }
 
-    std::vector<raytracer::color&> canvas::pixels() const
+    std::vector<raytracer::color> canvas::pixels() const
     {
         return _pixels;
     }
@@ -26,9 +26,9 @@ namespace raytracer
         _pixels[int_for_coords(x, y)] = c;
     }
 
-    raytracer::color* canvas::pixel_at(int x, int y)
+    raytracer::color canvas::pixel_at(int x, int y)
     {
-        return _pixels[int_for_coords(x, y)].get();
+        return _pixels[int_for_coords(x, y)];
     }
 
     int canvas::int_for_coords(int x, int y)

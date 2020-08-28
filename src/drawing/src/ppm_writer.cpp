@@ -24,7 +24,7 @@ namespace raytracer
         int pixel_count = 0;
         for (auto color : _canvas->pixels())
         {
-            _outfile << formatted_pixel(color.get());
+            _outfile << formatted_pixel(color);
             if (++pixel_count % 5 == 0)
             {
                 _outfile << std::endl;
@@ -39,10 +39,10 @@ namespace raytracer
         }
     }
 
-    std::string ppm_writer::formatted_pixel(raytracer::color *c) {
-        std::string result(std::to_string(mapped_color_value(c->red())));
-        result.append(" ").append(std::to_string(mapped_color_value(c->green())));
-        result.append(" ").append(std::to_string(mapped_color_value(c->blue())));
+    std::string ppm_writer::formatted_pixel(raytracer::color c) {
+        std::string result(std::to_string(mapped_color_value(c.red())));
+        result.append(" ").append(std::to_string(mapped_color_value(c.green())));
+        result.append(" ").append(std::to_string(mapped_color_value(c.blue())));
         return result;
     }
 

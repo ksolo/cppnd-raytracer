@@ -13,7 +13,7 @@ namespace raytracer
     {
         const int _width;
         const int _height;
-        std::vector<raytracer::color&> _pixels;
+        std::vector<raytracer::color> _pixels;
 
         int int_for_coords(int x, int y);
     public:
@@ -21,10 +21,10 @@ namespace raytracer
 
         int width() const override;
         int height() const override;
-        std::vector<raytracer::color&> pixels() const override;
+        std::vector<raytracer::color> pixels() const override;
 
         void write_pixel(int x, int y, raytracer::color c);
-        raytracer::color& pixel_at(int x, int y);
+        raytracer::color pixel_at(int x, int y);
     };
 }
 

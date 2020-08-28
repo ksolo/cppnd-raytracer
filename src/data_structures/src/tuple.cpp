@@ -70,7 +70,7 @@ namespace raytracer {
 
     double tuple::dot(tuple &other) {
         return (
-                    (x() * other.x())   +
+                    (x() * other.x()) +
                     (y() * other.y()) +
                     (z() * other.z()) +
                     (w() * other.w())
