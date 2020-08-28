@@ -9,21 +9,21 @@ namespace raytracer
         {
             for(size_t i=0; i < width*height; i++)
             {
-                _pixels.push_back(std::make_shared<raytracer::color>(0,0,0));
+                _pixels.emplace_back(raytracer::color(0,0,0));
             }
         };
 
     int canvas::width() const { return _width; }
     int canvas::height() const { return _height; }
 
-    std::vector<std::shared_ptr<raytracer::color>> canvas::pixels() const
+    std::vector<raytracer::color&> canvas::pixels() const
     {
         return _pixels;
     }
 
     void canvas::write_pixel(int x, int y, raytracer::color c)
     {
-        *_pixels[int_for_coords(x, y)] = c;
+        _pixels[int_for_coords(x, y)] = c;
     }
 
     raytracer::color* canvas::pixel_at(int x, int y)

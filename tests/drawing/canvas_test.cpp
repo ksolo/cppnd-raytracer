@@ -26,5 +26,5 @@ TEST(CANVAS_TEST, test_setting_pixels)
 
     canvas_one.write_pixel(2, 3, red);
 
-    EXPECT_TRUE(*canvas_one.pixel_at(2, 3) == red);
+    EXPECT_TRUE(canvas_one.pixel_at(2, 3) == red);
 }

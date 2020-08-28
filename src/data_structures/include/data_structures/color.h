@@ -16,6 +16,9 @@ public:
     // constructor
     color(double red, double green, double blue);
 
+    // copy assignment
+    color& operator=(const color& rhs);
+
     // getters
     double red() const;
     double green() const;
