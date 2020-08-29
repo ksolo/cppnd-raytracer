@@ -1,8 +1,7 @@
 #ifndef RAYTRACER_COLOR_H
 #define RAYTRACER_COLOR_H
 
-namespace raytracer
-{
+namespace raytracer {
 class color {
     static constexpr double epsilon = 0.0001;
     // private members

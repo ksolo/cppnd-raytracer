@@ -1,8 +1,7 @@
 #ifndef RAYTRACER_TUPLE_H
 #define RAYTRACER_TUPLE_H
 
-namespace raytracer
-{
+namespace raytracer {
 class tuple {
     static constexpr double epsilon = 0.0001;
     double _x;
