@@ -9,7 +9,7 @@ namespace raytracer
         {
             for(size_t i=0; i < width*height; i++)
             {
-                _pixels.emplace_back(raytracer::color(0,0,0));
+                _pixels.push_back(raytracer::color(0,0,0));
             }
         };
 

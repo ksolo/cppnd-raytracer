@@ -28,7 +28,7 @@ projectile tick(environment env, projectile p)
 int main()
 {
     raytracer::tuple starting_position = raytracer::tuple::point(0,1,0);
-    raytracer::tuple initial_velocity = raytracer::tuple::vector(1, 1.8, 0).normalize() * 11.25;
+    raytracer::tuple initial_velocity = raytracer::tuple::vector(1, 1.8, 0).normalize() * 14.25;
     projectile p { starting_position, initial_velocity };
 
     raytracer::tuple wind = raytracer::tuple::vector(-0.01, 0, 0);
@@ -46,9 +46,12 @@ int main()
         path.push_back(p);
     }
 
+
     raytracer::color red(1, 0, 0);
     for (auto proj : path)
     {
+
+        std::cout << "x: " << proj.position.x() << " y: " << proj.position.y() << std::endl;
         if (proj.position.y() < height && proj.position.y() > 0)
             can->write_pixel(proj.position.x(), height - proj.position.y(), red);
     }
