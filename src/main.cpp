@@ -50,10 +50,10 @@ int main()
     raytracer::color red(1, 0, 0);
     for (auto proj : path)
     {
-
-        std::cout << "x: " << proj.position.x() << " y: " << proj.position.y() << std::endl;
         if (proj.position.y() < height && proj.position.y() > 0)
+        {
             can->write_pixel(proj.position.x(), height - proj.position.y(), red);
+        }
     }
 
     std::string outfile = "cannon.ppm";

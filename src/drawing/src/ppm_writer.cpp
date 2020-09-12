@@ -30,7 +30,7 @@ namespace raytracer
                 _outfile << std::endl;
                 continue;
             }
-            if (color == *_canvas->pixels().end())
+            if (&color == &(*_canvas->pixels().end()))
             {
                 _outfile << std::endl << std::endl;
                 return;
