@@ -34,3 +34,17 @@ TEST(MATRIX_TEST, initializing_2x2_matrix)
     EXPECT_EQ(m.at(1, 0), 1) << "expect value at 1,0 to be 1";
     EXPECT_EQ(m.at(1, 1), -2) << "expect value at 0,1 to be -2";
 }
+
+TEST(MATRIX_TEST, initializing_3x3_matrix)
+{
+    std::vector<std::vector<double>> data {
+        { -3, 5, 0 },
+        { 1, -2, -7 },
+        { 0, 1, 1 }
+    };
+
+    raytracer::matrix m(data);
+    EXPECT_EQ(m.at(0, 0), -3) << "expect value at 0,0 to be -3";
+    EXPECT_EQ(m.at(1, 1), -2) << "expect value at 1,1 to be -2";
+    EXPECT_EQ(m.at(2, 2), 1) << "expect value at 2,2 to be 1";
+}
