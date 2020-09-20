@@ -48,3 +48,22 @@ TEST(MATRIX_TEST, initializing_3x3_matrix)
     EXPECT_EQ(m.at(1, 1), -2) << "expect value at 1,1 to be -2";
     EXPECT_EQ(m.at(2, 2), 1) << "expect value at 2,2 to be 1";
 }
+
+TEST(MATRIX_TEST, test_equality)
+{
+    std::vector<std::vector<double>> data = {
+        {1.0, 2.0, 3.0, 4.0},
+        {5.0, 6.0, 7.0, 8.0},
+        {9.0, 8.0, 7.0, 6.0},
+        {5.0, 4.0, 3.0, 2.0}
+    };
+    raytracer::matrix m1(data);
+    std::vector<std::vector<double>> data2 = {
+        {1.0, 2.0, 3.0, 4.0},
+        {5.0, 6.0, 7.0, 8.0},
+        {9.0, 8.0, 7.0, 6.0},
+        {5.0, 4.0, 3.0, 2.0}
+    };
+    raytracer::matrix m2(data2);
+    EXPECT_TRUE(m1 == m2) << "matrices are not equal";
+}

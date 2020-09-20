@@ -19,7 +19,8 @@ namespace raytracer {
 
     double tuple::w() const { return _w; }
 
-    bool tuple::epsilon_compare(double a, double b) {
+    bool tuple::epsilon_compare(double a, double b)
+    {
         return abs(a - b) <= epsilon;
     }
 
