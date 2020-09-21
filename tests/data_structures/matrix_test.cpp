@@ -67,3 +67,22 @@ TEST(MATRIX_TEST, test_equality)
     raytracer::matrix m2(data2);
     EXPECT_TRUE(m1 == m2) << "matrices are not equal";
 }
+
+TEST(MATRIX_TEST, test_inequality)
+{
+    std::vector<std::vector<double>> data = {
+        {2.0, 3.0, 4.0, 5.0},
+        {6.0, 7.0, 8.0, 9.0},
+        {8.0, 7.0, 6.0, 5.0},
+        {4.0, 3.0, 2.0, 1.0}
+    };
+    raytracer::matrix m1(data);
+    std::vector<std::vector<double>> data2 = {
+        {1.0, 2.0, 3.0, 4.0},
+        {5.0, 6.0, 7.0, 8.0},
+        {9.0, 8.0, 7.0, 6.0},
+        {5.0, 4.0, 3.0, 2.0}
+    };
+    raytracer::matrix m2(data2);
+    EXPECT_TRUE(!(m1 == m2)) << "matrices are not equal";
+}
