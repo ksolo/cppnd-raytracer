@@ -86,3 +86,32 @@ TEST(MATRIX_TEST, test_inequality)
     raytracer::matrix m2(data2);
     EXPECT_TRUE(!(m1 == m2)) << "matrices are not equal";
 }
+
+TEST(MATRIX_TEST, multiplying_matrix)
+{
+    std::vector<std::vector<double>> lhs {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 8, 7, 6},
+        {5, 4, 3, 2}
+    };
+    std::vector<std::vector<double>> rhs {
+        {-2, 1, 2, 3},
+        {3, 2, 1, -1},
+        {4, 3, 6, 5},
+        {1, 2, 7, 8}
+    };
+    raytracer::matrix m1(lhs);
+    raytracer::matrix m2(rhs);
+
+    raytracer::matrix result = m1 * m2;
+
+    std::vector<std::vector<double>> result_data {
+        {20, 22, 50, 48},
+        {44, 54, 114, 108},
+        {40, 58, 110, 102},
+        {16, 26, 46, 42}
+    };
+    raytracer::matrix expected(result_data);
+    EXPECT_TRUE(result == expected);
+}
