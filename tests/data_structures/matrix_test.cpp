@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include <iostream>
 
 #include "data_structures/matrix.h"
 
@@ -113,5 +114,6 @@ TEST(MATRIX_TEST, multiplying_matrix)
         {16, 26, 46, 42}
     };
     raytracer::matrix expected(result_data);
+
     EXPECT_TRUE(result == expected);
 }
