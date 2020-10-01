@@ -27,10 +27,10 @@ namespace raytracer
 
     matrix matrix::operator*(const matrix &rhs)
     {
-        std::vector<std::vector<double>> result;
+        std::vector<std::vector<double>> result{};
         for (size_t ri=0; ri < _data.size(); ri++)
         {
-            result.emplace_back(std::vector<double>(_data[ri].size()));
+            result.push_back(std::vector<double>{});
             for (size_t ci=0; ci < _data[ri].size(); ci++)
             {
                 const auto& row = _data[ri];
@@ -42,10 +42,24 @@ namespace raytracer
                     sum += row.at(i) * col.at(i);
                 }
 
-                result[ri][ci] = sum;
+                result[ri].push_back(sum);
             }
         }
         return matrix(result);
+    }
+
+    std::string matrix::to_str()
+    {
+        std::string result = "";
+        for (auto row : _data)
+        {
+            for (auto colval : row)
+            {
+                result.append(std::to_string(colval));
+            }
+            result.append("\n");
+        }
+        return result;
     }
 
     // private

@@ -113,7 +113,11 @@ TEST(MATRIX_TEST, multiplying_matrix)
         {40, 58, 110, 102},
         {16, 26, 46, 42}
     };
+
     raytracer::matrix expected(result_data);
+
+    std::cout << expected.to_str() << std::endl;
+    std::cout << result.to_str() << std::endl;
 
     EXPECT_TRUE(result == expected);
 }

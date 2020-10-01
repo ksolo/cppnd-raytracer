@@ -1,6 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
+#include <string>
 #include <vector>
 
 namespace raytracer
@@ -24,6 +25,9 @@ public:
 
     // value of the item at provided row, col
     double at(int row, int col) const;
+
+    // easy display
+    std::string to_str();
 };
 }
 
