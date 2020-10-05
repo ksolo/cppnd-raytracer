@@ -116,7 +116,6 @@ TEST(MATRIX_TEST, multiplying_matrix)
 
     raytracer::matrix expected(result_data);
 
-    std::cout << expected.to_str() << std::endl;
     std::cout << result.to_str() << std::endl;
 
     EXPECT_TRUE(result == expected);

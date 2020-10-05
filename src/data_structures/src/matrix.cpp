@@ -30,7 +30,8 @@ namespace raytracer
         std::vector<std::vector<double>> result{};
         for (size_t ri=0; ri < _data.size(); ri++)
         {
-            result.push_back(std::vector<double>{});
+            std::vector<double> r{};
+            result.push_back(r);
             for (size_t ci=0; ci < _data[ri].size(); ci++)
             {
                 const auto& row = _data[ri];
@@ -42,7 +43,8 @@ namespace raytracer
                     sum += row.at(i) * col.at(i);
                 }
 
-                result[ri].push_back(sum);
+                r.push_back(sum);
+                std::cout << std::to_string(ri) << ": " << sum << std::endl;
             }
         }
         return matrix(result);
