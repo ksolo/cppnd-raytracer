@@ -30,22 +30,15 @@ namespace raytracer
         std::vector<std::vector<double>> result{};
         for (size_t ri=0; ri < _data.size(); ri++)
         {
-            std::vector<double> r{};
-            result.push_back(r);
+            std::vector<double> nr{};
             for (size_t ci=0; ci < _data[ri].size(); ci++)
             {
-                const auto& row = _data[ri];
-                const auto& col = column(ci);
+                auto row = _data[ri];
+                auto col = column(ci);
 
-                double sum = 0;
-                for (size_t i=0; i < row.size(); i++)
-                {
-                    sum += row.at(i) * col.at(i);
-                }
-
-                r.push_back(sum);
-                std::cout << std::to_string(ri) << ": " << sum << std::endl;
+                nr.push_back(product(row, col));
             }
+            result.push_back(nr);
         }
         return matrix(result);
     }
@@ -65,6 +58,13 @@ namespace raytracer
     }
 
     // private
+    double matrix::product(std::vector<double> &row, std::vector<double> &col)
+    {
+        double sum{0};
+        for(size_t i=0; i < row.size(); i++)
+            sum += row[i] * col[i];
+        return sum;
+    }
 
     bool matrix::epsilon_compare(double a, double b)
     {

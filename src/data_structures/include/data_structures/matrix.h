@@ -10,6 +10,8 @@ class matrix
 {
 private:
     static constexpr double epsilon = 0.0001;
+    static double product(std::vector<double> &row, std::vector<double> &col);
+
     const std::vector<std::vector<double>>& _data;
     bool epsilon_compare(double a, double b);
     std::vector<double> column(int index);
