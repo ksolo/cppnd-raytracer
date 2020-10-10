@@ -6,7 +6,7 @@
 
 namespace raytracer
 {
-    matrix::matrix(const std::vector<std::vector<double>> &data) : _data(data) {};
+    matrix::matrix(const std::vector<std::vector<double>> data) : _data(data) {};
 
     double matrix::at(int row, int col) const
     {
@@ -27,20 +27,17 @@ namespace raytracer
 
     matrix matrix::operator*(const matrix &rhs)
     {
-        std::vector<std::vector<double>> result{};
+        std::vector<std::vector<double>> data;
         for (size_t ri=0; ri < _data.size(); ri++)
         {
-            std::vector<double> nr{};
+            std::vector<double> row;
             for (size_t ci=0; ci < _data[ri].size(); ci++)
             {
-                auto row = _data[ri];
-                auto col = column(ci);
-
-                nr.push_back(product(row, col));
+                auto col = rhs.column(ci);
+                row.push_back(product(_data[ri], col));
             }
-            result.push_back(nr);
         }
-        return matrix(result);
+        return matrix(data);
     }
 
     std::string matrix::to_str()
@@ -71,10 +68,10 @@ namespace raytracer
         return std::abs(a - b) <= epsilon;
     }
 
-    std::vector<double> matrix::column(int index)
+    std::vector<double> matrix::column(int index) const
     {
         std::vector<double> result;
-        for (const auto& row : _data)
+        for (auto& row : _data)
         {
             result.push_back(row[index]);
         }

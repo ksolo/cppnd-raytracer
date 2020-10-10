@@ -107,14 +107,14 @@ TEST(MATRIX_TEST, multiplying_matrix)
 
     raytracer::matrix result = m1 * m2;
 
-    std::vector<std::vector<double>> result_data {
+    std::vector<std::vector<double>> expected_data {
         {20, 22, 50, 48},
         {44, 54, 114, 108},
         {40, 58, 110, 102},
         {16, 26, 46, 42}
     };
 
-    raytracer::matrix expected(result_data);
+    raytracer::matrix expected(expected_data);
 
     std::cout << result.to_str() << std::endl;
 
