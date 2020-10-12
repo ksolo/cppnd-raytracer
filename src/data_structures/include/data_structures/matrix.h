@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "data_structures/tuple.h"
+
 namespace raytracer
 {
 class matrix
@@ -23,6 +25,7 @@ public:
 
     bool operator==(const matrix& rhs);
     matrix operator*(const matrix& rhs);
+    tuple operator*(const tuple& tup);
 
 
     // value of the item at provided row, col

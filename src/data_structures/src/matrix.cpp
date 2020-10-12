@@ -40,6 +40,17 @@ namespace raytracer
         return matrix(data);
     }
 
+    tuple matrix::operator*(const tuple& tup)
+    {
+        std::vector<double> result;
+        std::vector<double> col { tup.x(), tup.y(), tup.z(), tup.w() };
+        for(auto row: _data)
+        {
+            result.push_back(product(row, col));
+        }
+        return tuple(result[0], result[1], result[2], result[3]);
+    }
+
     std::string matrix::to_str()
     {
         std::string result = "";

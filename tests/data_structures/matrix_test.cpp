@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "data_structures/matrix.h"
+#include "data_structures/tuple.h"
 
 TEST(MATRIX_TEST, initializing_4x4_matrix)
 {
@@ -119,4 +120,21 @@ TEST(MATRIX_TEST, multiplying_matrix)
     std::cout << result.to_str() << std::endl;
 
     EXPECT_TRUE(result == expected);
+}
+
+TEST(MATRIX_TEST, multiply_matrix_by_tuple)
+{
+    std::vector<std::vector<double>> data {
+        {1, 2, 3, 4},
+        {2, 4, 4, 2},
+        {8, 6, 4, 1},
+        {0, 0, 0, 1}
+    };
+    raytracer::matrix m(data);
+    raytracer::tuple t(1, 2, 3, 1);
+
+    raytracer::tuple result = m * t;
+    raytracer::tuple expected(18, 24, 33, 1);
+
+    EXPECT_TRUE(expected == result);
 }
