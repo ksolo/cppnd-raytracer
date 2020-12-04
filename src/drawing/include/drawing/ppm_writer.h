@@ -12,7 +12,7 @@ class ppm_writer
     std::unique_ptr<raytracer::drawable> _canvas;
     std::ofstream _outfile;
 
-    std::string formatted_pixel(raytracer::color c);
+    void write_pixel(raytracer::color c);
     int mapped_color_value(double color_component);
 public:
     ppm_writer(std::string &output, std::unique_ptr<raytracer::drawable>&& canvas);

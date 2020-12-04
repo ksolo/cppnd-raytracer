@@ -17,33 +17,27 @@ namespace raytracer
 
     void ppm_writer::generate_image()
     {
-        _outfile << "P3" << std::endl;
-        _outfile << _canvas->width() << " " << _canvas->height() << std::endl;
-        _outfile << "255" << std::endl;
+        _outfile << "P3\n";
+        _outfile << _canvas->width() << " " << _canvas->height() << "\n";
+        _outfile << "255\n";
 
         int pixel_count = 0;
-        for (auto color : _canvas->pixels())
+        const auto& pixels = _canvas->pixels();
+
+        for (auto color : pixels)
         {
-            _outfile << formatted_pixel(color);
-            if (++pixel_count % 5 == 0)
-            {
-                _outfile << std::endl;
-                continue;
-            }
-            if (&color == &(*_canvas->pixels().end()))
-            {
-                _outfile << std::endl << std::endl;
-                return;
-            }
-            _outfile << " ";
+            write_pixel(color);
+            _outfile << (++pixel_count % 5 == 0 ? '\n' : ' ');
         }
+        _outfile << '\n';
+        _outfile.flush();
     }
 
-    std::string ppm_writer::formatted_pixel(raytracer::color c) {
-        std::string result(std::to_string(mapped_color_value(c.red())));
-        result.append(" ").append(std::to_string(mapped_color_value(c.green())));
-        result.append(" ").append(std::to_string(mapped_color_value(c.blue())));
-        return result;
+    void ppm_writer::write_pixel(raytracer::color c) {
+        _outfile
+            << mapped_color_value(c.red())
+            << " " << mapped_color_value(c.green())
+            << " " << mapped_color_value(c.blue());
     }
 
     int ppm_writer::mapped_color_value(double color_component)

@@ -21,7 +21,7 @@ namespace raytracer
 
         int width() const override;
         int height() const override;
-        std::vector<raytracer::color> pixels() const override;
+        const std::vector<raytracer::color>& pixels() const override;
 
         void write_pixel(int x, int y, raytracer::color c);
         raytracer::color pixel_at(int x, int y);
